@@ -5,66 +5,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Word Well — Christian Télémaque | Freelance Content Writing</title>
   <style>
+    /* ---------- RESET & BASE (classic/editorial) ---------- */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: system-ui, 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
     }
 
     body {
-      background: #fefcf5;
-      color: #1e1a2f;
+      background: #FCF9F5;   /* warm ivory background — quiet luxury */
+      color: #1C1A1A;
       line-height: 1.5;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
     }
 
-    /* banner container — you can replace background image with your own */
+    /* refined serif for headings — classic editorial feel */
+    h1, h2, h3, .logo, .blog-title, .author-info h3 {
+      font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    /* ---------- TYPOGRAPHY (modern CSS best practices) ---------- */
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      line-height: 1.2;
+      font-weight: 500;
+    }
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 500;
+      margin: 1.5rem 0 1rem 0;
+      letter-spacing: -0.01em;
+      border-left: 4px solid #C6A43B;
+      padding-left: 1.2rem;
+    }
+    .blog-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    body, p, .blog-excerpt, .nav-btn, .btn, input, textarea {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    }
+    /* improved readability */
+    p, .blog-excerpt, .author-info p {
+      max-width: 70ch;
+      color: #3A3A3A;
+    }
+    /* text-wrap balance for elegant headings */
+    .banner-text h1, .blog-title, h2 {
+      text-wrap: balance;
+    }
+
+    /* ---------- BANNER with integrated custom image ---------- */
     .hero-banner {
       width: 100%;
-      height: 360px;
+      height: 480px;
       background-size: cover;
-      background-position: center 35%;
+      background-position: center 40%;
       background-repeat: no-repeat;
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      /* fallback gradient matches earthy/warm tones */
-      background-color: #2c3e2f;
-      background-image: linear-gradient(135deg, #1f3b2c, #ab8e5c);
+      background-color: #2C3A2A;  /* fallback deep forest */
     }
-
+    /* subtle overlay for text contrast */
     .banner-overlay {
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.38);
       width: 100%;
       height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      backdrop-filter: brightness(0.95);
+      backdrop-filter: brightness(0.96);
     }
-
+    .banner-text {
+      max-width: 800px;
+      padding: 0 1rem;
+    }
     .banner-text h1 {
-      font-size: 3.4rem;
-      letter-spacing: -0.02em;
-      color: white;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
-    }
-
-    .banner-text p {
-      font-size: 1.3rem;
-      color: #f9eec1;
-      margin-top: 0.5rem;
+      color: #FFFFFF;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.2);
       font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+    .banner-text p {
+      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+      color: #F3E9D2;
+      margin-top: 0.75rem;
+      font-weight: 400;
+      max-width: 100%;
     }
 
-    /* navbar */
+    /* ---------- NAVBAR (clean, sharp, minimal) ---------- */
     .navbar {
-      background: #ffffffdd;
-      backdrop-filter: blur(12px);
-      background: white;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      background: rgba(255, 255, 245, 0.98);
+      backdrop-filter: blur(0px);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
       padding: 1rem 2rem;
       display: flex;
       flex-wrap: wrap;
@@ -73,236 +113,285 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      border-bottom: 1px solid #EBE3D5;
     }
-
     .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #2b5e2f, #b8860b);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
+      font-size: 1.9rem;
+      font-weight: 500;
+      color: #1E2F21;
       letter-spacing: -0.3px;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+      color: #1E2F21;
     }
-
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.8rem;
       flex-wrap: wrap;
       align-items: center;
     }
-
     .nav-btn {
       background: none;
       border: none;
-      font-weight: 500;
-      font-size: 1rem;
+      font-weight: 450;
+      font-size: 0.95rem;
       cursor: pointer;
-      padding: 0.5rem 0.8rem;
-      transition: 0.2s;
-      border-radius: 40px;
-      color: #2c3e2f;
+      padding: 0.4rem 0.2rem;
+      transition: 0.2s ease;
+      border-radius: 0px;
+      color: #2C3E2F;
+      letter-spacing: -0.2px;
+      border-bottom: 1px solid transparent;
     }
-
     .nav-btn:hover {
-      background: #f0ebe0;
+      border-bottom-color: #C6A43B;
+      background: none;
+      transform: translateY(-1px);
     }
-
     .btn-primary {
-      background: #2b5e2f;
+      background: #1E2F21;
       color: white;
+      border-radius: 40px;
+      padding: 0.5rem 1.3rem;
+      border: none;
+      font-weight: 500;
+    }
+    .btn-primary:hover {
+      background: #2C4A2E;
+      transform: none;
+      border-bottom: none;
+    }
+    .btn-primary-outline {
+      border: 1px solid #2C3E2F;
+      background: transparent;
+      color: #2C3E2F;
       border-radius: 40px;
       padding: 0.5rem 1.2rem;
     }
-
-    .btn-primary-outline {
-      border: 1px solid #2b5e2f;
-      background: transparent;
-      color: #2b5e2f;
+    .btn-primary-outline:hover {
+      background: #2C3E2F10;
+      border-bottom: 1px solid #2C3E2F;
     }
 
-    /* main container */
+    /* main container (max-width & padding) */
     .container {
       max-width: 1280px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
+      margin: 2.5rem auto;
+      padding: 0 2rem;
     }
 
-    /* profile & author card */
+    /* ---------- AUTHOR CARD (elevated classic style) ---------- */
     .author-card {
-      background: white;
-      border-radius: 2rem;
-      padding: 1.5rem;
+      background: #FFFFFF;
+      border-radius: 28px;
+      padding: 2rem;
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 2rem;
       flex-wrap: wrap;
-      margin-bottom: 2rem;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.03);
-      border: 1px solid #ede6d8;
+      margin-bottom: 2.8rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
+      border: 1px solid #EBE3D5;
+      transition: box-shadow 0.2s;
     }
-
     .profile-pic {
-      width: 85px;
-      height: 85px;
+      width: 96px;
+      height: 96px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #b8860b;
-      background: #e0d6c5;
+      border: 2px solid #C6A43B;
+      background: #F2EBE0;
     }
-
     .author-info h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
+      font-size: 1.9rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      color: #1A2A1C;
     }
-
+    .social-links {
+      margin-top: 0.8rem;
+    }
     .social-links a {
       text-decoration: none;
-      color: #2b5e2f;
-      margin-right: 1rem;
+      color: #6F5B3E;
+      margin-right: 1.5rem;
       font-weight: 500;
+      font-size: 0.9rem;
+      border-bottom: 1px dotted #DBCEBC;
+      transition: 0.2s;
+    }
+    .social-links a:hover {
+      color: #C6A43B;
+      border-bottom-color: #C6A43B;
     }
 
-    /* blog grid */
+    /* ---------- BLOG GRID (clean, generous spacing) ---------- */
     .blog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2.2rem;
+      margin: 2rem 0 2rem;
     }
-
     .blog-card {
-      background: white;
-      border-radius: 1.5rem;
+      background: #FFFFFF;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s;
-      border: 1px solid #f0e7da;
+      transition: all 0.25s ease;
+      border: 1px solid #EFE8DE;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
     }
-
     .blog-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.08);
+      border-color: #E2D6C8;
     }
-
     .blog-img {
       width: 100%;
-      height: 180px;
+      height: 210px;
       object-fit: cover;
-      background: #e9e1d2;
+      background: #E9E0D2;
+      transition: transform 0.4s ease;
     }
-
+    .blog-card:hover .blog-img {
+      transform: scale(1.02);
+    }
     .blog-card-content {
-      padding: 1.2rem;
+      padding: 1.6rem;
     }
-
     .blog-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+      font-size: 1.45rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
     }
-
     .blog-excerpt {
-      color: #4a4a4a;
+      color: #4A4A4A;
       font-size: 0.9rem;
-      margin-bottom: 1rem;
+      line-height: 1.45;
+      margin-bottom: 1.2rem;
     }
-
     .read-link {
       background: none;
       border: none;
-      color: #b8860b;
-      font-weight: 600;
+      color: #C6A43B;
+      font-weight: 550;
       cursor: pointer;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.3px;
+      padding: 0;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .read-link:hover {
+      color: #8B6C2E;
+      gap: 0.6rem;
     }
 
-    /* panels & forms */
+    /* panels & forms (classic minimal) */
     .panel {
-      background: white;
-      border-radius: 2rem;
+      background: #FFFFFF;
+      border-radius: 28px;
       padding: 2rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      margin: 1rem 0;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+      margin: 1.5rem 0;
+      border: 1px solid #EBE3D5;
     }
-
     .form-group {
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
-
     label {
       font-weight: 500;
       display: block;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.4rem;
+      color: #2C3E2F;
+      font-size: 0.85rem;
+      letter-spacing: 0.3px;
     }
-
     input, textarea, select {
       width: 100%;
-      padding: 0.8rem;
-      border-radius: 1rem;
-      border: 1px solid #ddd2c0;
-      background: #fefaf5;
+      padding: 0.85rem 1rem;
+      border-radius: 18px;
+      border: 1px solid #E2D6C8;
+      background: #FEFCF8;
+      font-size: 0.95rem;
+      transition: 0.2s;
     }
-
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #C6A43B;
+      box-shadow: 0 0 0 3px rgba(198, 164, 59, 0.1);
+    }
     button {
       cursor: pointer;
     }
-
     .btn {
-      padding: 0.7rem 1.4rem;
-      border-radius: 2rem;
+      padding: 0.7rem 1.6rem;
+      border-radius: 40px;
       border: none;
-      font-weight: 600;
-      background: #ede0cf;
+      font-weight: 500;
+      background: #F1EAE0;
       transition: 0.2s;
     }
-
     .btn-dark {
-      background: #2b5e2f;
+      background: #1E2F21;
       color: white;
     }
-
+    .btn-dark:hover {
+      background: #2C4A2E;
+      transform: translateY(-2px);
+    }
     .subscription-badge {
-      background: #e9f5e9;
-      padding: 0.5rem 1rem;
-      border-radius: 3rem;
+      background: #F5F0E8;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
       display: inline-block;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 500;
+      color: #6F5B3E;
     }
-
     .error {
-      color: #c7254e;
+      color: #B1624B;
       font-size: 0.85rem;
+      margin-top: 0.3rem;
     }
-
     footer {
-      background: #1e2a21;
-      color: #e0d9c6;
+      background: #EFEADF;
+      color: #4A3A2A;
       text-align: center;
       padding: 2rem;
-      margin-top: 3rem;
+      margin-top: 4rem;
+      border-top: 1px solid #DDD2C0;
+      font-size: 0.85rem;
     }
-
     hr {
-      margin: 1rem 0;
+      margin: 1.5rem 0;
+      border: 0;
+      height: 1px;
+      background: #EBE3D5;
     }
     .flex-between {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
-    .admin-actions {
-      margin-bottom: 1rem;
-    }
-    @media (max-width: 700px) {
-      .navbar { flex-direction: column; gap: 0.8rem; }
-      .banner-text h1 { font-size: 2rem; }
+    /* utility */
+    @media (max-width: 720px) {
+      .navbar { flex-direction: column; gap: 0.8rem; align-items: stretch; text-align: center; }
+      .nav-links { justify-content: center; }
+      .container { padding: 0 1.2rem; }
+      .author-card { flex-direction: column; text-align: center; }
+      .blog-grid { gap: 1.5rem; }
+      h2 { border-left: none; padding-left: 0; }
     }
   </style>
 </head>
 <body>
 
-<!-- BANNER section - replace background-image with your own image URL if needed -->
+<!-- BANNER section with integrated custom image from GitHub (raw) -->
 <div class="hero-banner" id="heroBanner">
   <div class="banner-overlay">
     <div class="banner-text">
@@ -316,12 +405,12 @@
 <div class="navbar">
   <div class="logo">✍️ Word Well</div>
   <div class="nav-links">
-    <button class="nav-btn" data-nav="home">📖 Blog</button>
-    <button class="nav-btn" data-nav="account">👤 My Account</button>
-    <button id="adminNavBtn" class="nav-btn" style="display: none;">⚙️ Admin Panel</button>
-    <button id="loginNavBtn" class="nav-btn btn-primary-outline">🔐 Login</button>
-    <button id="registerNavBtn" class="nav-btn btn-primary">📝 Sign Up</button>
-    <button id="logoutBtn" class="nav-btn" style="display: none;">🚪 Logout</button>
+    <button class="nav-btn" data-nav="home">📖 Journal</button>
+    <button class="nav-btn" data-nav="account">👤 Account</button>
+    <button id="adminNavBtn" class="nav-btn" style="display: none;">⚙️ Write</button>
+    <button id="loginNavBtn" class="nav-btn btn-primary-outline">🔐 Log in</button>
+    <button id="registerNavBtn" class="nav-btn btn-primary">Join</button>
+    <button id="logoutBtn" class="nav-btn" style="display: none;">Log out</button>
   </div>
 </div>
 
@@ -330,32 +419,30 @@
 
 <footer>
   <p>© 2025 Word Well — Freelance Content Writing by Christian Télémaque</p>
-  <p id="footerLinks">🔗 <a id="linkedinFooter" href="#" target="_blank" style="color:#d4c3a2;">LinkedIn</a> &nbsp;| ✉️ <span id="emailFooter"></span></p>
+  <p id="footerLinks">🔗 <a id="linkedinFooter" href="#" target="_blank" style="color:#6F5B3E; text-decoration: none; border-bottom: 1px dotted;">LinkedIn</a> &nbsp;| ✉️ <span id="emailFooter"></span></p>
 </footer>
 
 <script>
-  // ========== YOUR PERSONAL BRAND CONFIGURATION ==========
+  // ====================== CONFIGURATION (YOUR BRAND) ==================
   const CONFIG = {
-    // Replace with your actual banner image URL (or keep the gradient fallback)
-    bannerImageURL: "",   // leave empty to use CSS gradient; else put your image link e.g., "https://your-image.jpg"
-    // Profile picture (you can replace with any image URL)
-    profilePictureURL: "https://ui-avatars.com/api/?background=2b5e2f&color=fff&name=Christian+Télémaque&size=128",
+    // DIRECT RAW BANNER IMAGE URL (from your GitHub)
+    bannerImageURL: "https://raw.githubusercontent.com/christiantelemaque-byte/WordWell.mooo.com/main/luxecompanions-images/ChatGPT%20Image%20May%2012%2C%202026%2C%2006_25_11%20PM.png",
+    profilePictureURL: "https://ui-avatars.com/api/?background=2b5e2f&color=fff&name=Christian+Télémaque&size=128&bold=true",
     linkedIn: "https://www.linkedin.com/in/christian-telemaque-writer",
     email: "christiantelemaque@gmail.com",
     writerName: "Christian Télémaque"
   };
 
-  // Apply banner background: if user provides image, use it; otherwise keep gradient.
+  // apply banner background with RAW image
   const bannerDiv = document.getElementById('heroBanner');
-  if (CONFIG.bannerImageURL && CONFIG.bannerImageURL.trim() !== "") {
+  if (CONFIG.bannerImageURL) {
     bannerDiv.style.backgroundImage = `url(${CONFIG.bannerImageURL})`;
     bannerDiv.style.backgroundSize = "cover";
   } else {
-    // keep the original gradient as a beautiful earthy banner
     bannerDiv.style.background = "linear-gradient(135deg, #1f3b2c, #ab8e5c)";
   }
-  
-  // set footer links and email
+
+  // Footer dynamic links
   const linkedinFooter = document.getElementById('linkedinFooter');
   if(linkedinFooter) linkedinFooter.href = CONFIG.linkedIn;
   const emailFooterSpan = document.getElementById('emailFooter');
@@ -371,17 +458,15 @@
     const storedPosts = localStorage.getItem('wordwell_posts');
     users = storedUsers ? JSON.parse(storedUsers) : [];
     posts = storedPosts ? JSON.parse(storedPosts) : [];
-    // ensure default admin & demo blog posts if empty
     if (users.length === 0) {
       users.push({
         id: "u1",
         name: CONFIG.writerName,
         email: CONFIG.email,
-        password: "Admin123",   // demo password - you can change after login
+        password: "Admin123",
         isAdmin: true,
         subscription: { active: false, expiryDate: null, plan: null }
       });
-      // demo reader
       users.push({
         id: "u2",
         name: "Reader Demo",
@@ -394,9 +479,9 @@
     }
     if (posts.length === 0) {
       posts = [
-        { id: "p1", title: "Why authentic storytelling wins in 2025", content: "In a world flooded with AI content, genuine human narrative creates emotional connection. As a freelance writer, I craft each sentence with care — blending SEO research with natural storytelling. Whether you need website copy, blog posts, or ghostwriting, Word Well delivers words that resonate. This demo post shows how clarity and voice can transform your brand.", date: "2025-04-01", author: CONFIG.writerName, imageUrl: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=600" },
-        { id: "p2", title: "SEO writing that actually reads well", content: "Search engines love relevance, but humans love personality. Combining both is an art. I provide SEO-optimised content that doesn't sound robotic — from long-form articles to persuasive landing pages. Monthly subscribers get exclusive templates, SEO checklists, and early access to new articles. Subscribe to support independent writing.", date: "2025-04-05", author: CONFIG.writerName, imageUrl: "https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=600" },
-        { id: "p3", title: "Ghostwriting: bringing your voice to life", content: "You have ideas, but not the time to write. Ghostwriting bridges that gap. I've helped executives, founders, and creators produce authentic LinkedIn posts, newsletters, and even books. Every piece sounds like you — just more polished. Let's collaborate on your next project.", date: "2025-04-10", author: CONFIG.writerName, imageUrl: "https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?auto=compress&cs=tinysrgb&w=600" }
+        { id: "p1", title: "The art of authentic storytelling", content: "In a world flooded with generic content, genuine human narrative creates emotional connection. As a freelance writer, I craft each sentence with care — blending SEO strategy with natural storytelling. Whether you need website copy, blog posts, or ghostwriting, Word Well delivers words that resonate. This is the core of what I do: words that feel honest, sound like you, and speak directly to your audience.", date: "2025-04-01", author: CONFIG.writerName, imageUrl: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800" },
+        { id: "p2", title: "SEO writing that reads like a conversation", content: "Search engines love relevance, but humans love personality. Combining both is an art. I provide SEO-optimised content that doesn't sound robotic — from long-form articles to persuasive landing pages. Monthly subscribers get exclusive templates, SEO checklists, and early access to new articles. Subscribe to support independent writing that actually performs.", date: "2025-04-05", author: CONFIG.writerName, imageUrl: "https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=800" },
+        { id: "p3", title: "Ghostwriting: bringing your voice to life", content: "You have ideas, but not the time to write. Ghostwriting bridges that gap. I've helped executives, founders, and creators produce authentic LinkedIn posts, newsletters, and even entire books. Every piece sounds like you — just more polished. Let's collaborate on your next project. Quiet, professional, and always tailored.", date: "2025-04-10", author: CONFIG.writerName, imageUrl: "https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?auto=compress&cs=tinysrgb&w=800" }
       ];
       localStorage.setItem('wordwell_posts', JSON.stringify(posts));
     }
@@ -454,8 +539,7 @@
       loginBtn.style.display = 'none';
       registerBtn.style.display = 'none';
       logoutBtn.style.display = 'inline-block';
-      if (currentUser.isAdmin) adminNav.style.display = 'inline-block';
-      else adminNav.style.display = 'none';
+      adminNav.style.display = currentUser.isAdmin ? 'inline-block' : 'none';
     } else {
       loginBtn.style.display = 'inline-block';
       registerBtn.style.display = 'inline-block';
@@ -476,39 +560,36 @@
   }
 
   function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
-  
-  function getExcerpt(content, len=110) {
-    return content.length > len ? content.slice(0, len) + "…" : content;
-  }
+  function getExcerpt(content, len=115) { return content.length > len ? content.slice(0, len) + "…" : content; }
 
   function renderHome(container) {
     if (!posts.length) {
-      container.innerHTML = `<div class="panel"><p>No blog posts yet. Admin can write one.</p></div>`;
+      container.innerHTML = `<div class="panel"><p>No published articles yet. Check back soon.</p></div>`;
       return;
     }
     let html = `<div class="author-card">
-      <img class="profile-pic" src="${CONFIG.profilePictureURL}" alt="Christian Télémaque profile">
+      <img class="profile-pic" src="${CONFIG.profilePictureURL}" alt="Christian Télémaque">
       <div class="author-info">
         <h3>${CONFIG.writerName}</h3>
-        <p>Freelance content writer & strategist. Human-first, SEO-smart storytelling. Based on authentic voice for brands and creators.</p>
+        <p>Freelance content writer & strategist. Human-first, SEO-smart storytelling. I help brands find their voice and readers find meaning.</p>
         <div class="social-links">
           <a href="${CONFIG.linkedIn}" target="_blank">🔗 LinkedIn</a>
           <a href="mailto:${CONFIG.email}">✉️ ${CONFIG.email}</a>
         </div>
       </div>
     </div>
-    <h2>📚 Latest articles from Word Well</h2>
+    <h2>From the desk</h2>
     <div class="blog-grid">`;
     
     posts.slice().reverse().forEach(post => {
       html += `
         <div class="blog-card">
-          <img class="blog-img" src="${post.imageUrl || 'https://images.pexels.com/photos/256514/pexels-photo-256514.jpeg?auto=compress&cs=tinysrgb&w=600'}" alt="blog visual" onerror="this.src='https://placehold.co/600x400/ede0cf/2b5e2f?text=Word+Well'">
+          <img class="blog-img" src="${post.imageUrl || 'https://images.pexels.com/photos/256514/pexels-photo-256514.jpeg?auto=compress&cs=tinysrgb&w=600'}" alt="essay visual" onerror="this.src='https://placehold.co/600x400/F2EBE0/1E2F21?text=Word+Well'">
           <div class="blog-card-content">
             <div class="blog-title">${escapeHtml(post.title)}</div>
             <div class="blog-excerpt">${escapeHtml(getExcerpt(post.content, 90))}</div>
             <button class="read-link" data-postid="${post.id}">Read full story →</button>
-            <div style="font-size:0.75rem; margin-top:8px; color:#8b7a66;">📅 ${post.date} • by ${escapeHtml(post.author)}</div>
+            <div style="font-size:0.7rem; margin-top:12px; color:#9B8C74;">${post.date} — ${escapeHtml(post.author)}</div>
           </div>
         </div>`;
     });
@@ -518,7 +599,7 @@
       btn.addEventListener('click', (e) => {
         const postId = btn.getAttribute('data-postid');
         if (!currentUser) {
-          alert("🔐 Please login or create a free account to read full blog posts.");
+          alert("🔐 Please log in or create a free account to read full articles.");
           currentView = "login";
           render();
           return;
@@ -533,16 +614,16 @@
   function renderBlogDetail(container) {
     const postId = window.selectedPostId;
     const post = posts.find(p => p.id === postId);
-    if (!post) { container.innerHTML = `<div class="panel">Post not found</div>`; return; }
+    if (!post) { container.innerHTML = `<div class="panel">Essay not found</div>`; return; }
     container.innerHTML = `
       <div class="panel">
-        <button class="btn" id="backHomeBtn">← Back to Blog</button>
-        <h1 style="margin:1rem 0 0.5rem">${escapeHtml(post.title)}</h1>
-        <p style="color:#7c6b4f;">By ${escapeHtml(post.author)} • ${post.date}</p>
-        ${post.imageUrl ? `<img src="${post.imageUrl}" style="width:100%; max-height:400px; object-fit:cover; border-radius:1.5rem; margin:1rem 0;" alt="blog image" onerror="this.style.display='none'">` : ''}
-        <div style="white-space: pre-wrap; line-height:1.6; font-size:1.05rem;">${escapeHtml(post.content)}</div>
+        <button class="btn" id="backHomeBtn" style="margin-bottom:1rem;">← Back to Journal</button>
+        <h1 style="font-size:clamp(2rem,5vw,3rem);">${escapeHtml(post.title)}</h1>
+        <p style="color:#8F7A5C; margin:0.5rem 0 1rem 0;">By ${escapeHtml(post.author)} • ${post.date}</p>
+        ${post.imageUrl ? `<img src="${post.imageUrl}" style="width:100%; max-height:420px; object-fit:cover; border-radius:24px; margin:1.2rem 0;" alt="featured" onerror="this.style.display='none'">` : ''}
+        <div style="white-space: pre-wrap; line-height:1.65; font-size:1.05rem; color:#2B2B2B;">${escapeHtml(post.content)}</div>
         <hr />
-        <p><em>✍️ Loved this article? <strong>Subscribe monthly</strong> to support independent writing and get exclusive resources.</em></p>
+        <p style="font-style:italic;">✍️ Enjoyed this? <strong>Subscribe monthly</strong> to support independent writing and get exclusive resources.</p>
       </div>
     `;
     document.getElementById('backHomeBtn')?.addEventListener('click', () => {
@@ -553,7 +634,7 @@
 
   function renderAccount(container) {
     if (!currentUser) {
-      container.innerHTML = `<div class="panel"><p>Please login to view your account.</p><button class="btn btn-dark" id="gotoLogin">Login</button></div>`;
+      container.innerHTML = `<div class="panel"><p>Please log in to view your library.</p><button class="btn btn-dark" id="gotoLogin">Log in</button></div>`;
       document.getElementById('gotoLogin')?.addEventListener('click',()=>{ currentView="login"; render(); });
       return;
     }
@@ -561,47 +642,47 @@
     const subStatus = validSub ? `✅ Active until ${new Date(currentUser.subscription.expiryDate).toDateString()}` : (currentUser.subscription.active ? 'Expired' : 'No active subscription');
     container.innerHTML = `
       <div class="panel">
-        <h2>👋 Welcome back, ${escapeHtml(currentUser.name)}</h2>
+        <h2>Welcome, ${escapeHtml(currentUser.name)}</h2>
         <p><strong>Email:</strong> ${escapeHtml(currentUser.email)}</p>
         <p><strong>Role:</strong> ${currentUser.isAdmin ? "Writer & Admin" : "Reader"}</p>
-        <div class="subscription-badge" style="margin: 1rem 0;">📅 Monthly Subscription: ${subStatus}</div>
-        <div style="background:#f9f3ea; padding:1.2rem; border-radius:1.5rem;">
-          <h3>🌟 Support Word Well — Monthly Subscription</h3>
-          <p>Subscribe for $9.99/month and get access to exclusive writing tips, early blog access, and help sustain authentic content.</p>
-          ${validSub ? `<button class="btn" id="cancelSubBtn">Cancel Subscription</button>` : `<button class="btn btn-dark" id="startSubBtn">Start Monthly Subscription (Demo)</button>`}
-          <p style="font-size:0.8rem; margin-top:0.5rem;">*Demo: one-click mock subscription, no real payment.</p>
+        <div class="subscription-badge" style="margin: 1rem 0;">📖 Subscription: ${subStatus}</div>
+        <div style="background:#F9F5EF; padding:1.5rem; border-radius:24px;">
+          <h3>✍️ Support Word Well — Monthly Membership</h3>
+          <p>Subscribe for $9.99/month and unlock writing tips, early essays, and help sustain authentic content.</p>
+          ${validSub ? `<button class="btn" id="cancelSubBtn">Cancel Membership</button>` : `<button class="btn btn-dark" id="startSubBtn">Become a Member (Demo)</button>`}
+          <p style="font-size:0.75rem; margin-top:0.75rem;">*Demo: one-click mock subscription, no real payment.</p>
         </div>
       </div>
     `;
     if (validSub) {
       document.getElementById('cancelSubBtn')?.addEventListener('click', () => {
         setUserSubscription(currentUser.id, false);
-        alert("Subscription cancelled. You can resubscribe anytime.");
+        alert("Membership cancelled. You can resubscribe anytime.");
         render();
       });
     } else {
       document.getElementById('startSubBtn')?.addEventListener('click', () => {
         setUserSubscription(currentUser.id, true, 1);
-        alert("🎉 Subscription activated! Valid for 30 days (demo). Thank you for supporting Word Well!");
+        alert("🎉 Membership activated! Valid for 30 days (demo). Thank you for supporting Word Well!");
         render();
       });
     }
   }
 
-  // ADMIN PANEL: full blog management
+  // ADMIN PANEL: classic writer's dashboard
   function renderAdminPanel(container) {
     if (!currentUser || !currentUser.isAdmin) { container.innerHTML = `<div>Access denied</div>`; return; }
-    let html = `<div class="panel"><div class="flex-between"><h2>📝 Admin Dashboard — Manage Blog Posts</h2><button class="btn btn-dark" id="newPostBtn">+ Create New Post</button></div><div id="adminPostsList"></div></div>`;
+    let html = `<div class="panel"><div class="flex-between"><h2>Writer’s Desk</h2><button class="btn btn-dark" id="newPostBtn">+ New Essay</button></div><div id="adminPostsList"></div></div>`;
     container.innerHTML = html;
     function renderPostList() {
       const listDiv = document.getElementById('adminPostsList');
       if (!listDiv) return;
-      if (posts.length === 0) { listDiv.innerHTML = '<p>No posts yet. Create your first blog.</p>'; return; }
+      if (posts.length === 0) { listDiv.innerHTML = '<p>No essays yet. Begin writing.</p>'; return; }
       let listHtml = `<div style="margin-top:1.5rem;">`;
       posts.forEach(post => {
-        listHtml += `<div style="border:1px solid #e2d5c0; border-radius:1.5rem; padding:1rem; margin-bottom:1rem;">
-          <strong>${escapeHtml(post.title)}</strong> <small>(${post.date})</small>
-          <div style="margin-top:0.5rem;"><button class="btn editPostBtn" data-id="${post.id}">✏️ Edit</button> <button class="btn deletePostBtn" data-id="${post.id}" style="background:#e6ccc2;">🗑 Delete</button></div>
+        listHtml += `<div style="border-bottom:1px solid #F0E7DC; padding:1rem 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+          <span><strong>${escapeHtml(post.title)}</strong> <span style="color:#9F8B6F;">(${post.date})</span></span>
+          <div><button class="btn editPostBtn" data-id="${post.id}" style="margin-right:8px;">✏️ Edit</button> <button class="btn deletePostBtn" data-id="${post.id}" style="background:#E9DFD3;">🗑 Delete</button></div>
         </div>`;
       });
       listHtml += `</div>`;
@@ -611,9 +692,8 @@
       });
       document.querySelectorAll('.deletePostBtn').forEach(btn => {
         btn.addEventListener('click', (e) => {
-          if (confirm("Delete this post permanently?")) {
-            const id = btn.getAttribute('data-id');
-            posts = posts.filter(p => p.id !== id);
+          if (confirm("Permanently delete this essay?")) {
+            posts = posts.filter(p => p.id !== btn.getAttribute('data-id'));
             savePosts();
             renderAdminPanel(container);
           }
@@ -624,16 +704,13 @@
     document.getElementById('newPostBtn')?.addEventListener('click', () => showPostForm(null));
     function showPostForm(postToEdit = null) {
       const isEdit = !!postToEdit;
-      const titleVal = isEdit ? postToEdit.title : '';
-      const contentVal = isEdit ? postToEdit.content : '';
-      const imgVal = isEdit ? postToEdit.imageUrl || '' : '';
       const formHtml = `
         <div class="panel" id="postFormModal" style="margin-top:1rem;">
-          <h3>${isEdit ? 'Edit Post' : 'Write New Blog'}</h3>
-          <div class="form-group"><label>Title</label><input id="postTitle" value="${escapeHtml(titleVal)}" /></div>
-          <div class="form-group"><label>Content (full article)</label><textarea id="postContent" rows="6">${escapeHtml(contentVal)}</textarea></div>
-          <div class="form-group"><label>Image URL (optional)</label><input id="postImage" value="${escapeHtml(imgVal)}" placeholder="https://..."/></div>
-          <button class="btn btn-dark" id="savePostBtn">💾 Save Post</button>
+          <h3>${isEdit ? 'Revise Essay' : 'Draft New Essay'}</h3>
+          <div class="form-group"><label>Title</label><input id="postTitle" value="${escapeHtml(isEdit ? postToEdit.title : '')}" /></div>
+          <div class="form-group"><label>Full text</label><textarea id="postContent" rows="6">${escapeHtml(isEdit ? postToEdit.content : '')}</textarea></div>
+          <div class="form-group"><label>Image URL (optional)</label><input id="postImage" value="${escapeHtml(isEdit ? (postToEdit.imageUrl || '') : '')}" placeholder="https://..." /></div>
+          <button class="btn btn-dark" id="savePostBtn">Save</button>
           <button class="btn" id="cancelPostBtn">Cancel</button>
         </div>`;
       const existing = document.getElementById('postFormModal');
@@ -650,26 +727,18 @@
           postToEdit.imageUrl = imageUrl || null;
           savePosts();
         } else {
-          const newPost = {
-            id: "p" + Date.now(),
-            title, content, imageUrl: imageUrl || null,
-            date: new Date().toISOString().slice(0,10),
-            author: currentUser.name,
-          };
+          const newPost = { id: "p" + Date.now(), title, content, imageUrl: imageUrl || null, date: new Date().toISOString().slice(0,10), author: currentUser.name };
           posts.unshift(newPost);
           savePosts();
         }
         document.getElementById('postFormModal')?.remove();
         renderAdminPanel(container);
       });
-      document.getElementById('cancelPostBtn')?.addEventListener('click', () => {
-        document.getElementById('postFormModal')?.remove();
-      });
+      document.getElementById('cancelPostBtn')?.addEventListener('click', () => { document.getElementById('postFormModal')?.remove(); });
     }
     function editPostForm(postId) {
       const post = posts.find(p => p.id === postId);
       if(post) showPostForm(post);
-      else alert("Post not found");
     }
   }
 
@@ -678,43 +747,32 @@
     container.innerHTML = `<div class="panel"><h2>Log in to Word Well</h2><div id="loginError" class="error"></div>
     <div class="form-group"><label>Email</label><input id="loginEmail" type="email" /></div>
     <div class="form-group"><label>Password</label><input id="loginPassword" type="password" /></div>
-    <button class="btn btn-dark" id="doLoginBtn">Login</button>
-    <p style="margin-top:1rem;">Don't have account? <button class="nav-btn" id="switchToReg">Sign up</button></p></div>`;
+    <button class="btn btn-dark" id="doLoginBtn">Access library</button>
+    <p style="margin-top:1rem;">No account? <button class="nav-btn" id="switchToReg">Create profile</button></p></div>`;
     document.getElementById('doLoginBtn')?.addEventListener('click', () => {
       const email = document.getElementById('loginEmail').value.trim();
       const pwd = document.getElementById('loginPassword').value.trim();
       const user = users.find(u => u.email === email && u.password === pwd);
-      if (user) {
-        currentUser = { ...user };
-        saveCurrentUser();
-        currentView = "home";
-        render();
-      } else {
-        document.getElementById('loginError').innerText = "Invalid email or password.";
-      }
+      if (user) { currentUser = { ...user }; saveCurrentUser(); currentView = "home"; render(); } 
+      else { document.getElementById('loginError').innerText = "Invalid credentials."; }
     });
     document.getElementById('switchToReg')?.addEventListener('click', () => { currentView = "register"; render(); });
   }
 
   function renderRegister(container) {
-    container.innerHTML = `<div class="panel"><h2>Create free account</h2><div id="regError" class="error"></div>
+    container.innerHTML = `<div class="panel"><h2>Become a reader</h2><div id="regError" class="error"></div>
     <div class="form-group"><label>Full name</label><input id="regName" /></div>
     <div class="form-group"><label>Email</label><input id="regEmail" type="email" /></div>
     <div class="form-group"><label>Password</label><input id="regPassword" type="password" /></div>
-    <button class="btn btn-dark" id="doRegBtn">Sign up & read blogs</button>
-    <p>Already have account? <button class="nav-btn" id="switchToLogin">Login</button></p></div>`;
+    <button class="btn btn-dark" id="doRegBtn">Sign up — free</button>
+    <p>Already a reader? <button class="nav-btn" id="switchToLogin">Log in</button></p></div>`;
     document.getElementById('doRegBtn')?.addEventListener('click', () => {
       const name = document.getElementById('regName').value.trim();
       const email = document.getElementById('regEmail').value.trim();
       const pass = document.getElementById('regPassword').value.trim();
-      if (!name || !email || !pass) { document.getElementById('regError').innerText = "All fields required"; return; }
-      if (findUserByEmail(email)) { document.getElementById('regError').innerText = "Email already exists"; return; }
-      const newUser = {
-        id: "u"+Date.now(),
-        name, email, password: pass,
-        isAdmin: false,
-        subscription: { active: false, expiryDate: null, plan: null }
-      };
+      if (!name || !email || !pass) { document.getElementById('regError').innerText = "All fields required."; return; }
+      if (findUserByEmail(email)) { document.getElementById('regError').innerText = "Email already registered."; return; }
+      const newUser = { id: "u"+Date.now(), name, email, password: pass, isAdmin: false, subscription: { active: false, expiryDate: null, plan: null } };
       users.push(newUser);
       saveUsers();
       currentUser = { ...newUser };
@@ -725,7 +783,6 @@
     document.getElementById('switchToLogin')?.addEventListener('click', () => { currentView = "login"; render(); });
   }
 
-  // Navigation events
   function bindNavEvents() {
     document.querySelectorAll('[data-nav]').forEach(btn => {
       btn.addEventListener('click', (e) => {
